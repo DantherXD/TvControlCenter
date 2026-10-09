@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backdrop_top">#191922</color>
+    <color name="backdrop_bottom">#07070A</color>
+    <color name="panel_bg">#F21C1C1E</color>
+    <color name="tile_on">#0A84FF</color>
+    <color name="text_primary">#F2F2F7</color>
+</resources>

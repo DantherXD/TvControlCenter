@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_backdrop">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alpha="0.22"
+        android:text="Press BACK or MENU to close"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:clickable="true"
+        android:focusable="false" />
+
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="420dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_panel"
+        android:clipToOutline="true"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="28dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/rowUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_row_normal"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:nextFocusUp="@+id/rowUser"
+            android:nextFocusDown="@+id/rowSleep"
+            android:nextFocusLeft="@+id/rowUser"
+            android:nextFocusRight="@+id/rowUser"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_avatar"
+                android:padding="8dp"
+                android:src="@drawable/ic_person"
+                android:tint="#F2F2F7" />
+
+            <TextView
+                android:id="@+id/tvUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="Guest"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivChevron"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:alpha="0.5"
+                android:src="@drawable/ic_chevron"
+                android:tint="#F2F2F7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowSleep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_row_normal"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:nextFocusUp="@+id/rowUser"
+            android:nextFocusDown="@+id/rowNowPlaying"
+            android:nextFocusLeft="@+id/rowSleep"
+            android:nextFocusRight="@+id/rowSleep"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:id="@+id/ivSleep"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="14dp"
+                android:src="@drawable/ic_sleep"
+                android:tint="#F2F2F7" />
+
+            <TextView
+                android:id="@+id/tvSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sleep"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowNowPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_row_normal"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:nextFocusUp="@+id/rowSleep"
+            android:nextFocusDown="@+id/tileWifi"
+            android:nextFocusLeft="@+id/rowNowPlaying"
+            android:nextFocusRight="@+id/rowNowPlaying"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/ivNpIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_np_art"
+                android:padding="12dp"
+                android:src="@drawable/ic_music"
+                android:tint="#F2F2F7" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNpTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing Playing"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNpSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Play something to see it here"
+                    android:textColor="#99EBEBF5"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tileWifi"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/rowNowPlaying"
+                android:nextFocusDown="@+id/tileAirplane"
+                android:nextFocusLeft="@+id/tileWifi"
+                android:nextFocusRight="@+id/tileBluetooth"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icWifi"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_wifi"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblWifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Wi-Fi"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tileBluetooth"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/rowNowPlaying"
+                android:nextFocusDown="@+id/tileScreensaver"
+                android:nextFocusLeft="@+id/tileWifi"
+                android:nextFocusRight="@+id/tileFocus"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icBluetooth"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_bluetooth"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblBluetooth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Bluetooth"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tileFocus"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/rowNowPlaying"
+                android:nextFocusDown="@+id/tilePower"
+                android:nextFocusLeft="@+id/tileBluetooth"
+                android:nextFocusRight="@+id/tileFocus"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icFocus"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_moon"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblFocus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Focus"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tileAirplane"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/tileWifi"
+                android:nextFocusDown="@+id/tileAirplane"
+                android:nextFocusLeft="@+id/tileAirplane"
+                android:nextFocusRight="@+id/tileScreensaver"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icAirplane"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_airplane"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblAirplane"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Airplane"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tileScreensaver"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/tileBluetooth"
+                android:nextFocusDown="@+id/tileScreensaver"
+                android:nextFocusLeft="@+id/tileAirplane"
+                android:nextFocusRight="@+id/tilePower"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icScreensaver"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_tv"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblScreensaver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Screensaver"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tilePower"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tile_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:nextFocusUp="@+id/tileFocus"
+                android:nextFocusDown="@+id/tilePower"
+                android:nextFocusLeft="@+id/tileScreensaver"
+                android:nextFocusRight="@+id/tilePower"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icPower"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_power"
+                    android:tint="#F2F2F7" />
+
+                <TextView
+                    android:id="@+id/lblPower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="Power"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextClock
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="h:mm"
+                android:format24Hour="H:mm"
+                android:textColor="@color/text_primary"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextClock
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="4dp"
+                android:alpha="0.55"
+                android:format12Hour="EEEE, MMMM d"
+                android:format24Hour="EEEE, MMMM d"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
